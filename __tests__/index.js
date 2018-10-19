@@ -1,11 +1,12 @@
 'use strict'
-const { transform } = require('babel-core')
+const { transform, transformSync } = require('@babel/core')
 const literalToArray = require('../src')
 
 const opts = {
   plugins: [
-    [literalToArray]
-  ]
+    literalToArray
+  ],
+  ast: true
 }
 const cases = [
   {
