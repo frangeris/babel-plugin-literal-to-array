@@ -1,24 +1,25 @@
 'use strict'
 const { transform, transformSync } = require('@babel/core')
-const literalToArray = require('../src')
+const taggedToArray = require('../src')
 
 const opts = {
   plugins: [
-    literalToArray
+    [taggedToArray, { keyword: 'mylib' }]
   ],
   ast: true
 }
 const cases = [
   {
-    given: 'testing`class1 class2 class3 class4`',
-    expected: '[testing.class1, testing.class2, testing.class3, testing.class4]'
+    given: 'mylib`class1 class2 class3 class4`',
+    expected: '[mylib.class1, mylib.class2, mylib.class3, mylib.class4];'
   }
 ]
 
-describe('Babel Plugin Literal To Array', () => {
+describe('Babel Plugin tagged To Array', () => {
   it('should replace literals as arrays', () => {
     for (const { given, expected } of cases) {
-      transform(given, opts)
+      let { code } = transform(given, opts)
+      expect(code).toEqual(expected)
     }
   })
 })
