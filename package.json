@@ -1,0 +1,28 @@
+{
+  "name": "babel-plugin-literal-to-array",
+  "version": "1.0.0",
+  "description": "Replace tagged template literals with separated values as array",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frangeris/babel-plugin-literal-to-array.git"
+  },
+  "keywords": [
+    "babel-plugin",
+    "string-literals",
+    "literals-to-array"
+  ],
+  "author": "Frangeris Peguero <frangeris.20@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frangeris/babel-plugin-literal-to-array/issues"
+  },
+  "homepage": "https://github.com/frangeris/babel-plugin-literal-to-array#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "jest": "^23.6.0"
+  }
+}
