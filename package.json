@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-tagged-to-array",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Replace tagged template literals with separated values as array",
   "main": "src/index.js",
   "scripts": {
