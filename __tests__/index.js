@@ -10,8 +10,8 @@ const opts = {
 }
 const cases = [
   {
-    given: 'mylib`class1 class2 class3 class4`',
-    expected: '[mylib.class1, mylib.class2, mylib.class3, mylib.class4];'
+    given: "mylib('class1 class2 class3 class4')",
+    expected: "[mylib.class1, mylib.class2, mylib.class3, mylib.class4];",
   }
 ]
 

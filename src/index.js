@@ -1,23 +1,22 @@
 function taggedToArray({ types: t }) {
-  let attrs = []
-  let name = null
-  let expression = null
   return {
     visitor: {
-      TaggedTemplateExpression(path, state) {
-        expression = path
-      },
-      Identifier(path, state) {
-        if (path.node.name === state.opts.keyword) {
-          name = path.node.name
-        }
-      },
-      TemplateElement(path, state) {
-        if (name === state.opts.keyword) {
-          for (let attr of path.node.value.raw.split(' ')) {
-            attrs.push(`${name}.${attr}`)
+      CallExpression(path, state) {
+        if (t.isIdentifier(path.node.callee, { name: state.opts.keyword })) {
+          if (!state.opts.keyword) {
+            return
           }
-          expression.replaceWithSourceString(`[${attrs.toString()}]`)
+
+          let args = path.node.arguments
+          if (!args.length) {
+            return
+          }
+
+          let attrs = []
+          for (let attr of args[0].value.split(' ')) {
+            attrs.push(`${state.opts.keyword}.${attr}`)
+          }
+          path.replaceWithSourceString(`[${attrs.toString()}]`)
         }
       }
     }
