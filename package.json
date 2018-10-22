@@ -4,7 +4,8 @@
   "description": "Replace tagged template literals with separated values as array",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "compile": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,11 @@
   },
   "homepage": "https://github.com/frangeris/babel-plugin-literal-to-array#readme",
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "jest": "^23.6.0"
   }
 }
